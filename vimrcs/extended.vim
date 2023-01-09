@@ -29,7 +29,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-colorscheme peaksea
+colorscheme dracula
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,8 +210,7 @@ if &filetype == 'c'
     exec "!gcc % -o %<"
     exec "!time ./%<"
 elseif &filetype == 'cpp'
-    exec "!g++ % -o %<"
-    exec "!time ./%<"
+    exec "te g++ % && ./a.out"
 elseif &filetype == 'java'
     exec "!javac %"
     exec "!time java %"

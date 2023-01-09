@@ -143,11 +143,12 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    autocmd vimenter * ++nested colorscheme gruvbox
+    " colorscheme desert
 catch
 endtry
 
-set background=dark
+" set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
