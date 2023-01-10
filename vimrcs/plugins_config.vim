@@ -217,7 +217,7 @@ call plug#begin()
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'andweeb/presence.nvim', Cond(!exists('g:vscode'))
+" Plug 'andweeb/presence.nvim', Cond(!exists('g:vscode'))
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
