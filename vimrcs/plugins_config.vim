@@ -478,3 +478,5 @@ set clipboard+=unnamedplus
 :command Cpf :normal "+P<CR>
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
+
+inoremap jk <ESC>
