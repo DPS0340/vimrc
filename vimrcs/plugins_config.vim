@@ -10,11 +10,11 @@
 """"""""""""""""""""""""""""""
 
 if !exists('g:vscode')
-	let s:vim_runtime = expand('<sfile>:p:h')."/.."
-	call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
-	call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
-	call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
-	call pathogen#helptags()
+  let s:vim_runtime = expand('<sfile>:p:h')."/.."
+  call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
+  call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
+  call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
+  call pathogen#helptags()
 endif
 
 
@@ -71,9 +71,9 @@ let g:user_zen_mode='a'
 " => snipMate (beside <TAB> support <CTRL-j>)
 """"""""""""""""""""""""""""""
 if !exists('g:vscode')
-	ino <C-j> <C-r>=snipMate#TriggerSnippet()<cr>
-	snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<cr>
-	let g:snipMate = { 'snippet_version' : 1 }
+  ino <C-j> <C-r>=snipMate#TriggerSnippet()<cr>
+  snor <C-j> <esc>i<right><C-r>=snipMate#TriggerSnippet()<cr>
+  let g:snipMate = { 'snippet_version' : 1 }
 endif
 
 
@@ -216,8 +216,6 @@ call plug#begin()
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Plug 'andweeb/presence.nvim', Cond(!exists('g:vscode'))
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -428,29 +426,6 @@ set hlsearch " highlight all results
 set ignorecase " ignore case in search
 set incsearch " shosw search results as you type
 
-" presence.nvim
-" General options
-let g:presence_auto_update         = 1
-let g:presence_neovim_image_text   = "The One True Text Editor"
-let g:presence_main_image          = "neovim"
-let g:presence_client_id           = "793271441293967371"
-let g:presence_log_level = "debug"
-let g:presence_debounce_timeout    = 10
-let g:presence_enable_line_number  = 0
-let g:presence_blacklist           = []
-let g:presence_buttons             = 1
-let g:presence_file_assets         = {}
-let g:presence_show_time           = 1
-
-" Rich Presence text options
-let g:presence_editing_text        = "Editing %s"
-let g:presence_file_explorer_text  = "Browsing %s"
-let g:presence_git_commit_text     = "Committing changes"
-let g:presence_plugin_manager_text = "Managing plugins"
-let g:presence_reading_text        = "Reading %s"
-let g:presence_workspace_text      = "Working on %s"
-let g:presence_line_number_text    = "Line %s out of %s"
-
 " C++ lsp config
 
 " g:coc_user_config['languageserver'].ccls.initializationOptions.clang.extraargs = "-std=c++17"
@@ -478,5 +453,3 @@ set clipboard+=unnamedplus
 :command Cpf :normal "+P<CR>
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
-
-inoremap jk <ESC>
