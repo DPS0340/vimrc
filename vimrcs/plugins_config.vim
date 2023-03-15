@@ -452,6 +452,9 @@ set clipboard+=unnamedplus
 :command Cyf :normal ggVG"+y<CR>
 :command Cpf :normal "+P<CR>
 
-cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
