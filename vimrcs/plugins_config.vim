@@ -452,9 +452,6 @@ set clipboard+=unnamedplus
 :command Cyf :normal ggVG"+y<CR>
 :command Cpf :normal "+P<CR>
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+cnoreabbrev W w
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
