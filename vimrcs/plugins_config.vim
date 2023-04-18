@@ -217,6 +217,11 @@ call plug#begin()
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-conflicted', Cond(!exists('g:vscode'))
