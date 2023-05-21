@@ -192,7 +192,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :GBrowse!<CR>
 
-set number
 packloadall
 
 set nocompatible              " be iMproved, required
@@ -215,6 +214,8 @@ call plug#begin()
 " Make sure you use single quotes
 
 " Use release branch (recommend)
+Plug 'nvim-lua/plenary.nvim'
+Plug 'p00f/cphelper.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nvim-tree/nvim-tree.lua'
@@ -227,7 +228,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-conflicted', Cond(!exists('g:vscode'))
 Plug 'vim-utils/vim-man'
 
-Plug 'scrooloose/nerdtree', Cond(!exists('g:vscode'))
+Plug 'preservim/nerdtree'
+
 Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/vim-slash'
@@ -236,7 +238,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='gruvbox'
+Plug 'nyoom-engineering/oxocarbon.nvim'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -245,6 +247,12 @@ call plug#end()
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
 
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
 
 " Coc config
 
@@ -460,3 +468,24 @@ set clipboard+=unnamedplus
 cnoreabbrev W w
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+set guifont=Hack\ Nerd\ Font\ Regular:h16
+
+inoremap jk <ESC>
+let mapleader = "'"
+syntax on # highlight syntax
+set number
+set relativenumber
+set noswapfile # disable the swapfile
+set hlsearch # highlight all results
+set ignorecase # ignore case in search
+set incsearch # show search results as you type
+
