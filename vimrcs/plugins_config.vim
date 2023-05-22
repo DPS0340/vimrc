@@ -445,7 +445,7 @@ set incsearch " shosw search results as you type
 
 " Clipboard for WSL
 
-set clipboard+=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " let g:clipboard = {
 " 			\   'name': 'WslClipboard',
