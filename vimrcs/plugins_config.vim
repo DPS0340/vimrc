@@ -87,7 +87,7 @@ set grepprg=/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
@@ -218,6 +218,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'p00f/cphelper.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'wakatime/vim-wakatime'
+
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 
@@ -229,6 +231,7 @@ Plug 'christoomey/vim-conflicted', Cond(!exists('g:vscode'))
 Plug 'vim-utils/vim-man'
 
 Plug 'preservim/nerdtree'
+Plug 'max397574/better-escape.nvim'
 
 Plug 'tpope/vim-commentary'
 
@@ -251,7 +254,8 @@ lua << EOF
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-require("nvim-tree").setup()
+# require("nvim-tree").setup()
+require("better_escape").setup()
 EOF
 
 " Coc config
@@ -479,13 +483,25 @@ set expandtab
 
 set guifont=Hack\ Nerd\ Font\ Regular:h16
 
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+
 inoremap jk <ESC>
 let mapleader = "'"
-syntax on # highlight syntax
+syntax on " highlight syntax
 set number
 set relativenumber
-set noswapfile # disable the swapfile
-set hlsearch # highlight all results
-set ignorecase # ignore case in search
-set incsearch # show search results as you type
+set noswapfile " disable the swapfile
+set hlsearch " highlight all results
+set ignorecase " ignore case in search
+set incsearch " show search results as you type
 
+
+" nerdtree settings
+" original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
