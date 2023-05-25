@@ -231,7 +231,8 @@ Plug 'christoomey/vim-conflicted', Cond(!exists('g:vscode'))
 Plug 'vim-utils/vim-man'
 
 Plug 'preservim/nerdtree'
-Plug 'max397574/better-escape.nvim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'zhou13/vim-easyescape'
 
 Plug 'tpope/vim-commentary'
 
@@ -424,32 +425,15 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " End coc config
 
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-
 let g:loaded_man='true'
-
-map <TAB> >>
-map <S-TAB> <<
-vmap ' gc
-nmap ' gc<CR>
-
-" inoremap ;;; <ESC>
-
-" https://danielmiessler.com/study/vim/
-set noswapfile " disable the swapfile
-set hlsearch " highlight all results
-set ignorecase " ignore case in search
-set incsearch " shosw search results as you type
 
 " C++ lsp config
 
 " g:coc_user_config['languageserver'].ccls.initializationOptions.clang.extraargs = "-std=c++17"
 
-" Clipboard for WSL
-
 set clipboard^=unnamed,unnamedplus
+
+" Clipboard for WSL
 
 " let g:clipboard = {
 " 			\   'name': 'WslClipboard',
@@ -488,8 +472,17 @@ set guifont=Hack\ Nerd\ Font\ Regular:h16
 " nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
-inoremap jk <ESC>
-let mapleader = "'"
+let g:easyescape_chars = { "j": 1, "k": 1 }
+let g:easyescape_timeout = 100
+cnoremap jk <ESC>
+cnoremap kj <ESC>
+
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" " https://danielmiessler.com/study/vim/
+" let mapleader = "'"
 syntax on " highlight syntax
 set number
 set relativenumber
@@ -497,7 +490,6 @@ set noswapfile " disable the swapfile
 set hlsearch " highlight all results
 set ignorecase " ignore case in search
 set incsearch " show search results as you type
-
 
 " nerdtree settings
 " original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
