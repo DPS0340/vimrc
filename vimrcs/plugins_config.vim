@@ -232,7 +232,7 @@ Plug 'vim-utils/vim-man'
 
 Plug 'preservim/nerdtree'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'zhou13/vim-easyescape'
+Plug 'jdhao/better-escape.vim'
 
 Plug 'tpope/vim-commentary'
 
@@ -284,16 +284,18 @@ set signcolumn=yes
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" inoremap <silent>
+
+" jk<expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -474,12 +476,13 @@ set guifont=Hack\ Nerd\ Font\ Regular:h16
 " nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
-let g:easyescape_chars = { "j": 1, "k": 1 }
-let g:easyescape_timeout = 100
+let g:better_escape_shortcut = ['jk', 'kj']
+let g:better_escape_interval = 500
+
 cnoremap jk <ESC>
 cnoremap kj <ESC>
 
-set tabstop=4
+" set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
@@ -492,6 +495,11 @@ set noswapfile " disable the swapfile
 set hlsearch " highlight all results
 set ignorecase " ignore case in search
 set incsearch " show search results as you type
+
+set notimeout
+set nottimeout
+
+set hidden
 
 " nerdtree settings
 " original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
