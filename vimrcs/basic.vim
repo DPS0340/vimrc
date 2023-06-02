@@ -43,14 +43,16 @@ au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = "'"
 
 " Fast saving
 nmap <leader>w :w!<cr>
+nmap <C-t> :NERDTreeToggle<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 
 " :W sudo saves the file
-" (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+" (useful for handling the permission-denied error)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -321,7 +323,7 @@ map <leader>s? z=
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scribble
 map <leader>q :e ~/buffer<cr>

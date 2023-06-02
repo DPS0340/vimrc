@@ -284,11 +284,11 @@ set signcolumn=yes
 " no select by `"suggest.noselect": true` in your configuration file
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
-" inoremap <silent><expr> <TAB>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
@@ -454,9 +454,6 @@ set clipboard^=unnamed,unnamedplus
 
 " Easy yank / paste using clipboard
 
-:command Cyf :normal ggVG"+y<CR>
-:command Cpf :normal "+P<CR>
-
 cnoreabbrev W w
 
 :command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
@@ -471,7 +468,6 @@ set expandtab
 
 set guifont=Hack\ Nerd\ Font\ Regular:h16
 
-" nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
 " nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
@@ -487,7 +483,6 @@ set shiftwidth=4
 set noexpandtab
 
 " " https://danielmiessler.com/study/vim/
-" let mapleader = "'"
 syntax on " highlight syntax
 set number
 set relativenumber
@@ -501,9 +496,18 @@ set nottimeout
 
 set hidden
 
+command! Wq :wq
+command! WQ :wq
+command! W :q
+command! Q :q
+
 " nerdtree settings
 " original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
+
+:command Cyf :normal ggVG"+y<CR>
+:command Cpf :normal \"+P<CR>
+
