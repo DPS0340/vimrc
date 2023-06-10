@@ -50,6 +50,8 @@ nmap <leader>w :w!<cr>
 nmap <C-t> :NERDTreeToggle<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 
+nmap <leader>bl :buffers<cr>
+
 " :W sudo saves the file
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " (useful for handling the permission-denied error)

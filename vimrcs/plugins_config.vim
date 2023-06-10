@@ -250,6 +250,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -466,7 +472,7 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-set guifont=Hack\ Nerd\ Font\ Regular:h16
+set guifont=Fira_Code:h20
 
 " nnoremap <C-n> :NERDTree<CR>
 " nnoremap <C-t> :NERDTreeToggle<CR>
@@ -475,8 +481,8 @@ set guifont=Hack\ Nerd\ Font\ Regular:h16
 let g:better_escape_shortcut = ['jk', 'kj']
 let g:better_escape_interval = 500
 
-cnoremap jk <ESC>
-cnoremap kj <ESC>
+cnoremap <silent> jk <ESC>
+cnoremap <silent> kj <ESC>
 
 " set tabstop=4
 set shiftwidth=4
@@ -484,6 +490,7 @@ set noexpandtab
 
 " " https://danielmiessler.com/study/vim/
 syntax on " highlight syntax
+filetype plugin on
 set number
 set relativenumber
 set noswapfile " disable the swapfile
@@ -501,6 +508,13 @@ command! WQ :wq
 command! W :q
 command! Q :q
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+map Y y$
+
 " nerdtree settings
 " original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
 " enable line numbers
@@ -510,4 +524,3 @@ autocmd FileType nerdtree setlocal relativenumber
 
 :command Cyf :normal ggVG"+y<CR>
 :command Cpf :normal \"+P<CR>
-
