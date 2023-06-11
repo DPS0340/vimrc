@@ -255,6 +255,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
+Plug 'https://github.com/adelarsq/vim-matchit'
+
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
