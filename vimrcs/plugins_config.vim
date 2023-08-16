@@ -11,10 +11,10 @@
 
 if !exists('g:vscode')
   let s:vim_runtime = expand('<sfile>:p:h')."/.."
-  call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
-  call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
-  call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
-  call pathogen#helptags()
+  " call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
+  " call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
+  " call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
+  " call pathogen#helptags()
 endif
 
 
@@ -87,13 +87,13 @@ set grepprg=/bin/grep\ -nH
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+" let g:NERDTreeWinPos = "left"
+" let NERDTreeShowHidden=0
+" let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+" let g:NERDTreeWinSize=35
+" map <leader>nn :NERDTreeToggle<cr>
+" map <leader>nb :NERDTreeFromBookmark<Space>
+" map <leader>nf :NERDTreeFind<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -230,7 +230,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-conflicted', Cond(!exists('g:vscode'))
 Plug 'vim-utils/vim-man'
 
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
+
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'jdhao/better-escape.vim'
 
@@ -257,6 +265,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 
 Plug 'https://github.com/adelarsq/vim-matchit'
 
+Plug 'https://github.com/Konfekt/vim-CtrlXA'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -480,6 +489,8 @@ set guifont=Fira_Code:h20
 " nnoremap <C-t> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
+nnoremap <C-t> :NvimTreeToggle<CR>
+
 let g:better_escape_shortcut = ['jk', 'kj']
 let g:better_escape_interval = 500
 
@@ -517,12 +528,12 @@ nnoremap <silent> ]B :blast<CR>
 
 map Y y$
 
-" nerdtree settings
-" original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
-" enable line numbers
-let NERDTreeShowLineNumbers=1
-" make sure relative line numbers are used
-autocmd FileType nerdtree setlocal relativenumber
+" " nerdtree settings
+" " original code from https://mokacoding.com/blog/nerdtree-relative-numbers/
+" " enable line numbers
+" let NERDTreeShowLineNumbers=1
+" " make sure relative line numbers are used
+" autocmd FileType nerdtree setlocal relativenumber
 
 :command Cyf :normal ggVG"+y<CR>
 :command Cpf :normal \"+P<CR>
