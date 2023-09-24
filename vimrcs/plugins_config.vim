@@ -471,7 +471,7 @@ set clipboard^=unnamed,unnamedplus
 
 cnoreabbrev W w
 
-:command Boilerplate :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
+:command Bp :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
