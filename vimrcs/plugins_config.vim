@@ -232,13 +232,6 @@ Plug 'vim-utils/vim-man'
 
 " Plug 'preservim/nerdtree'
 
-lua << EOF
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
-require("nvim-tree").setup()
-EOF
-
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'jdhao/better-escape.vim'
 
@@ -275,9 +268,12 @@ call plug#end()
 "   filetype indent off   " Disable file-type-specific indentation
 "   syntax off            " Disable syntax highlighting
 
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-set termguicolors
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup()
+EOF
 
 " Coc config
 
