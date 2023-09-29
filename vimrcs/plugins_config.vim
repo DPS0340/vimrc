@@ -473,7 +473,7 @@ cnoreabbrev W w
 
 :command Bp :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
 
-# https://stackoverflow.com/a/7078429/11853111
+" https://stackoverflow.com/a/7078429/11853111
 cmap w!! w !sudo tee > /dev/null %
 
 filetype plugin indent on
