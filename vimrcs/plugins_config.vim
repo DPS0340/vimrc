@@ -240,7 +240,8 @@ Plug 'tpope/vim-commentary'
 
 Plug 'junegunn/vim-slash'
 
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -262,6 +263,8 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'https://github.com/hashivim/vim-terraform'
 Plug 'https://github.com/Konfekt/vim-CtrlXA'
 
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -270,11 +273,12 @@ call plug#end()
 "   syntax off            " Disable syntax highlighting
 
 lua << EOF
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
-require("nvim-tree").setup()
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
+	vim.opt.termguicolors = true
+	require("nvim-tree").setup()
 EOF
+
 
 " Coc config
 
@@ -472,9 +476,12 @@ set clipboard^=unnamed,unnamedplus
 cnoreabbrev W w
 
 :command Bp :normal :r ~/programming/boj/boilerplate.cpp<CR>ggJ<CR>
+<<<<<<< HEAD
 
 " https://stackoverflow.com/a/7078429/11853111
 cmap w!! w !sudo tee > /dev/null %
+=======
+>>>>>>> 8ed16d74 (feat: catppuccin, ctags setup)
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
@@ -558,3 +565,5 @@ function! YAMLTree()
     let l:list = reverse(l:list)
     echo join(l:list, '>')
 endfunction
+
+autocmd! User vim-gutentags call gutentags#setup_gutentags()

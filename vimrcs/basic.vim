@@ -147,6 +147,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
+    " autocmd vimenter * ++nested colorscheme gruvbox
 	autocmd vimenter * ++nested colorscheme catppuccin-mocha
     " colorscheme desert
 catch
