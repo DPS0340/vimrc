@@ -499,6 +499,9 @@ nnoremap <C-t> :NvimTreeToggle<CR>
 let g:better_escape_shortcut = ['jk', 'kj']
 let g:better_escape_interval = 500
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 cnoremap <silent> jk <ESC>
 cnoremap <silent> kj <ESC>
 
