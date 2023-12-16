@@ -265,6 +265,10 @@ Plug 'https://github.com/Konfekt/vim-CtrlXA'
 
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
