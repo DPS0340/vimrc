@@ -265,9 +265,12 @@ Plug 'https://github.com/Konfekt/vim-CtrlXA'
 
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -571,6 +574,8 @@ function! YAMLTree()
 endfunction
 
 autocmd! User vim-gutentags call gutentags#setup_gutentags()
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " inoremap { {}<Esc>ha
 " inoremap ( ()<Esc>ha
