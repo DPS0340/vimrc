@@ -585,3 +585,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap " ""<Esc>ha
 " inoremap ' ''<Esc>ha
 " inoremap ` ``<Esc>ha
+
+set foldmethod=indent
+
