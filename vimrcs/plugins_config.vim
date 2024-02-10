@@ -274,6 +274,8 @@ Plug 'jparise/vim-graphql'
 
 Plug 'voldikss/vim-floaterm'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
