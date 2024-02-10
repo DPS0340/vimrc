@@ -499,7 +499,7 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-set guifont=Fira_Code:h20
+set guifont=Hack_Nerd_Font:h14
 
 " nnoremap <C-n> :NERDTree<CR>
 " nnoremap <C-t> :NERDTreeToggle<CR>
