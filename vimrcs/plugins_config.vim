@@ -263,7 +263,7 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'https://github.com/hashivim/vim-terraform'
 Plug 'https://github.com/Konfekt/vim-CtrlXA'
 
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
+" Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
@@ -577,7 +577,7 @@ function! YAMLTree()
     echo join(l:list, '>')
 endfunction
 
-autocmd! User vim-gutentags call gutentags#setup_gutentags()
+" autocmd! User vim-gutentags call gutentags#setup_gutentags()
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
