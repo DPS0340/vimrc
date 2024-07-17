@@ -276,6 +276,8 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
+Plug 'edluffy/hologram.nvim'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
