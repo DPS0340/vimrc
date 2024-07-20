@@ -241,6 +241,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-slash'
 
 " Plug 'morhetz/gruvbox'
+Plug 'nordtheme/vim'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 Plug 'vim-airline/vim-airline'

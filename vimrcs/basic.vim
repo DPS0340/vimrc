@@ -148,7 +148,7 @@ endif
 
 try
     " autocmd vimenter * ++nested colorscheme gruvbox
-	autocmd vimenter * ++nested colorscheme catppuccin-mocha
+	autocmd vimenter * ++nested colorscheme nord
     " colorscheme desert
 catch
 endtry
