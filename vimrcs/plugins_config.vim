@@ -593,3 +593,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 autocmd FileType rust setlocal foldmethod=indent
 
+" https://vi.stackexchange.com/questions/4141/how-to-indent-as-spaces-instead-of-tab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
