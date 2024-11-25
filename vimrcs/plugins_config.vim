@@ -283,6 +283,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
 
+Plug 'sindresorhus/pure'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
