@@ -285,6 +285,8 @@ Plug 'MunifTanjim/prettier.nvim'
 
 Plug 'sindresorhus/pure'
 
+Plug 'sbdchd/neoformat'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -293,6 +295,7 @@ call plug#end()
 "   syntax off            " Disable syntax highlighting
 
 lua << EOF
+    vim.g.neoformat_try_node_exe = 1
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
 	vim.opt.termguicolors = true
@@ -664,6 +667,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap ` ``<Esc>ha
 
 autocmd FileType rust setlocal foldmethod=indent
+
+autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
+autocmd BufWritePre,TextChanged,InsertLeave *.jsx Neoformat
+autocmd BufWritePre,TextChanged,InsertLeave *.ts Neoformat
+autocmd BufWritePre,TextChanged,InsertLeave *.tsx Neoformat
 
 " https://vi.stackexchange.com/questions/4141/how-to-indent-as-spaces-instead-of-tab
 set tabstop=4
