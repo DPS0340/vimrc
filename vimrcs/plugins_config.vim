@@ -257,7 +257,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'https://github.com/adelarsq/vim-matchit'
 
@@ -286,6 +286,9 @@ Plug 'MunifTanjim/prettier.nvim'
 Plug 'sindresorhus/pure'
 
 Plug 'sbdchd/neoformat'
+
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': 'TSUpdate' }
+Plug 'windwp/nvim-ts-autotag'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -366,6 +369,23 @@ lua << EOF
         "yaml",
       },
     })
+
+    require'nvim-treesitter.configs'.setup {
+          -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "typescript", "tsx" },
+
+          -- Install parsers synchronously (only applied to `ensure_installed`)
+          sync_install = false,
+
+          -- Automatically install missing parsers when entering buffer
+          -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+          auto_install = true,
+
+          highlight = {
+             enable = true,
+          },
+    }
+
 EOF
 
 
