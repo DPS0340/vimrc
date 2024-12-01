@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""
 " Important:
 "       This requires that you install https://github.com/amix/vimrc !
 "
@@ -290,6 +290,11 @@ Plug 'sbdchd/neoformat'
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': 'TSUpdate' }
 Plug 'windwp/nvim-ts-autotag'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'pmizio/typescript-tools.nvim'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -384,6 +389,17 @@ lua << EOF
           highlight = {
              enable = true,
           },
+    }
+
+    require("typescript-tools").setup {
+      settings = {
+        tsserver_plugins = {
+          -- for TypeScript v4.9+
+          "@styled/typescript-styled-plugin",
+          -- or for older TypeScript versions
+          -- "typescript-styled-plugin",
+        },
+      },
     }
 
 EOF
@@ -688,10 +704,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 autocmd FileType rust setlocal foldmethod=indent
 
-autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
-autocmd BufWritePre,TextChanged,InsertLeave *.jsx Neoformat
-autocmd BufWritePre,TextChanged,InsertLeave *.ts Neoformat
-autocmd BufWritePre,TextChanged,InsertLeave *.tsx Neoformat
+autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.jsx Neoformat
+autocmd BufWritePre *.ts Neoformat
+autocmd BufWritePre *.tsx Neoformat
 
 " https://vi.stackexchange.com/questions/4141/how-to-indent-as-spaces-instead-of-tab
 set tabstop=4
