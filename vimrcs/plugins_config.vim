@@ -285,6 +285,10 @@ Plug 'MunifTanjim/prettier.nvim'
 
 Plug 'sindresorhus/pure'
 
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'TabbyML/vim-tabby'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -296,6 +300,10 @@ lua << EOF
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
 	vim.opt.termguicolors = true
+
+    vim.g.tabby_agent_start_command = {"npx", "tabby-agent", "--stdio"}
+    vim.g.tabby_inline_completion_trigger = "auto"
+
 	require("nvim-tree").setup()
 
     local null_ls = require("null-ls")
