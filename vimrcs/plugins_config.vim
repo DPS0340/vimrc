@@ -308,6 +308,9 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+Plug 'petertriho/cmp-git'
+Plug 'saecki/crates.nvim', { 'tag': 'stable' }
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
